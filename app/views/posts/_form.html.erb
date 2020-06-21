@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag 'application' %>
+<%= form_for @post do |f| %>
+<%= render "devise/shared/error_messages", resource: @post %>
+  <%= f.label "タイトル" %><br>
+  <%= f.text_field :title, class: 'form-control' %><br>
+  <%= f.label "記事内容" %><br>
+  <%= f.text_area :content, class: 'form-control' %><br>
+  <%= f.submit %><br>
+<% end %>

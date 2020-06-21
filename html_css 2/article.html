@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+    <meta charset="UTF-8">
+    <title>Rails Camp Blog</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+</head>
+<body>
+
+<header>
+    <p id="logo"><a href="">RailsCamp<span>Blog</span></a></p>
+    <nav>
+        <ul>
+            <li><a href="">トップ</a></li>
+            <li><a href="">新規投稿</a></li>
+            <div class="clear"></div>
+        </ul>
+    </nav>
+    <div class="clear"></div>
+</header>
+
+
+<div id="title">
+    <div>
+        <p>2015/10/05</p>
+        <h1>Railsでnil? blank? empty? present?メソッドの違い</h1>
+    </div>
+</div>
+
+<div id="article_wrap">
+
+    <div id="content">
+        
+                    <h2>どれもtrueかfalseかnilを判定するメソッドです。</h2>
+                    <p>
+                    nil?とempty?はrubyのメソッドであり、blank?とpresent?はrailsで拡張されたメソッドです。なので、blank?とpresent?はRailsでしか使えません。
+                    まず１つ１つの意味をみていきましょう。
+                    </p>
+                    
+                    <h2>nil?</h2>
+                    <p>
+                    nilなので何も存在してない（配列や文字列などの入れ物もない）場合にtrueになります。
+                    nilの場合のみtrueを返し、それ以外はfalseを返します。
+                    例えば、以下の場合は入れ物があるので、falseです。
+                    </p>
+                    
+                    <h2>empty?</h2>
+                    <p>
+                    入れ物があり、それが空の場合はtrueです。
+                    空の文字列や空の配列の場合にtrueを返します。nilに対して呼び出すとNoMethodErrorが発生します。
+                    </p>
+                    
+                    <h2>blank?</h2>
+                    <p>
+                    nil?、もしくはempty?のどちらかがTrueであればTrue、nil? or empty? のようなメソッド。
+                    </p>
+                     
+                    <h2>まとめ</h2>
+                    <p>
+                    何もないか確認したいときはnil?
+                    入れ物があって空か確認したいときはempty?
+                    nil?、もしくはempty?を確認したければblank?
+                    !blank?と書くならpresent?
+                    </p>
+                
+    </div>
+
+
+    <div id="sidebar">
+        
+        <h2>★PV数ランキング</h2>
+        <ul>
+            <li><a href="">記事タイトル記事タイトル１記事タイトル記事タイトル<span>（10PV）</span></a></li>
+            <li><a href="">記事タイトル記事タイトル１記事タイトル記事タイトル<span>（8PV）</span></a></li>
+            <li><a href="">記事タイトル記事タイトル１記事タイトル記事タイトル<span>（2PV）</span></a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<footer>
+    <div id="footer_inner">
+        <p>Copyright RailsCamp 2015 All Rights Reserved</p>
+    </div>
+</footer>
+
+</body>
+</html>

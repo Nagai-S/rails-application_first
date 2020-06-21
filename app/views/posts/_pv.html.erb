@@ -1,0 +1,10 @@
+<div id="sidebar">
+
+    <h2>★PV数ランキング</h2>
+    <ul>
+      <% @ids.each do |ids| %>
+            <li><%= link_to Post.find(ids.to_i).title, post_path(ids.to_i) %><span> (<%= (REDIS.zscore "post", ids).to_i %>PV) </span></li>
+      <% end %>
+    </ul>
+</div>
+<div class="clear"></div>

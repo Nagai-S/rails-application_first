@@ -1,0 +1,24 @@
+<div id="main">
+    <%= image_tag 'top-img.jpg'%>
+</div>
+
+
+<div id="article_wrap">
+
+    <div id="article_list">
+      <% @posts.each do |post| %>
+      <div>
+        <h2><%= link_to post.title, post_path(post) %></h2>
+        <p><%= post.created_time %></p>
+
+        <% if user_signed_in? %>
+          <%= link_to "編集", edit_post_path(post) %>
+          <%= link_to "削除", post_path(post), method: :DELETE, data: { confirm: "削除してよろしいですか？" } %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
+    <%= render 'pv' %>
+
+</div>
